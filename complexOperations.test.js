@@ -80,6 +80,13 @@ describe('complexOperation - Tests', () => {
 	    expect(complexOperations.calculateArea('square')).toBe(16);
     });
 
+    it('should be: squares is not supported when isSupportedFigure is mocked to squares ', () => {
+      jest.spyOn(basicOperations, 'multip').mockReturnValue(16);
+      jest.spyOn(basicOperations, 'isNumber').mockReturnValue(true);
+      jest.spyOn(basicOperations, 'isSupportedFigure').mockReturnValue('squares');
+	    expect(complexOperations.calculateArea('squares')).toBe('squares is not supported');
+    });
+
     it('should be: 4 when the figure is triangle & number1 = 2 & number2 = 4', ()=> {
 	    expect(complexOperations.calculateArea('triangle',2,4)).toBe(4);
     });
